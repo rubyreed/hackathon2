@@ -11,15 +11,19 @@ const toggleForm = () => {
   setShowForm(!showForm);
 };
 
+const renderIngredientsList = () => {
+  
+}
+
   return (
     <div>
-      <p>Name: {name}</p>
+      {/* <p>Name: {name}</p>
       {/* <Link to={`/shopping_lists/${id}`}>View</Link> */}
-      <button onClick ={toggleForm}>
+      {/* <button onClick ={toggleForm}>
         {showForm ? "Cancel" : "Update"}
       </button>
       {showForm && <ShoppingListForm id = {id} name = {name} updateShoppingList = {updateShoppingList} deleteShoppingList = {deleteShoppingList}/>}
-      <button onClick={() => deleteShoppingList(id)}>Delete</button>
+      <button onClick={() => deleteShoppingList(id)}>Delete</button> */} */}
     </div>
   );
 };

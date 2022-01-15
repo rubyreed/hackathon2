@@ -28,10 +28,13 @@ const EditUser= (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({email, image, name, id})
-    return auth.handleEdit({email, image, name, id}, navigate);
+    auth.handleEdit({email, image, name, id}, navigate);
+    refreshPage()
   };
 
+  function refreshPage(){
+    window.location.reload(false);
+  };
 
 
   return (
