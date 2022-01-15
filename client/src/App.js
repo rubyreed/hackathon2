@@ -10,13 +10,12 @@ import AboutUs from "./pages/AboutUs";
 import RecipeBook from "./pages/RecipeBook";
 import ShoppingList from "./pages/ShoppingList";
 import Profile from "./pages/Profile";
-import Protected from "./pages/Protected";
 
 
 function App() {
   return (
     <div>
-      <NavBar />
+      <NavBar/>
       <Routes>
         {/* public routes go here */}
         <Route path="/register" element={<Register />} />
@@ -25,14 +24,12 @@ function App() {
         <Route path="/" element={<Home />} />
       <Route element={<RequireAuth />}>
           {/* protected routes go here */}
-          <Route path="/" element={<Home />} />
-          <Route path="/protected" element={<Protected />} />
-          <Route path="/recipebook" element={<RecipeBook />} />
         <Route path="/shoppinglist" element={<ShoppingList />} />
+        <Route path="/recipebook" element={<RecipeBook />} />
         <Route path="/profile" element={<Profile />} />
         {/* <Route path="/protected" element={<Protected />} /> */}
         </Route>
-      </Routes>
+    </Routes>
     </div>
   );
 }

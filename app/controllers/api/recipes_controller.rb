@@ -1,9 +1,13 @@
 class Api::RecipesController < ApplicationController
-  # before_action :authenticate_user!
+    before_action :authenticate_user!, except: [:all_recipes]
   before_action :set_recipe, only: [:show, :update, :destroy]
 
     def index
-        render json: Recipe.all
+      render json: current_user.recipes
+    end
+
+    def all_recipes
+      render json: Recipe.all
     end
 
     def show
@@ -11,7 +15,7 @@ class Api::RecipesController < ApplicationController
     end
 
     def create
-        @recipe = Recipe.new(recipe_params)
+        @recipe = current_user.recipes.new(recipe_params)
         if(@recipe.save)
             render json: @recipe 
         else
