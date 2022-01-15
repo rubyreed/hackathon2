@@ -26,7 +26,7 @@ class Api::RecipesController < ApplicationController
     private
 
     def recipe_params
-        params.require(:recipe).permit(:category, :name, :description, :likes, :user_id)
+        params.require(:recipe).permit(:category, :name, :instruction, :image, :user_id)
     end
 
     def set_recipe
