@@ -1,5 +1,16 @@
 class Api::UsersController < ApplicationController
 
+
+  before_action :set_user, only: [:show, :update, :destroy]
+  def show
+    render json: @user
+  end
+
+  def update
+    if (@user.update(user_params))
+      render json: @user
+    end
+
   def image
     file = params[:files]
     user = User.find(params[:id])
@@ -24,8 +35,8 @@ class Api::UsersController < ApplicationController
     end
     
     # save to db
-    # Image.new( user_id: current_user.id, url: cloud_image['secure_url'] )
-      image = user.images.new( url: cloud_image['secure_url'] )
+    Image.new( user_id: current_user.id, url: cloud_image['secure_url'] )
+      # image = user.images.new( url: cloud_image['secure_url'] )
       if(image.save)
           render json: image
       else
@@ -34,16 +45,8 @@ class Api::UsersController < ApplicationController
     end
 
 
-  before_action :set_user, only: [:show, :update, :destroy]
 
-  def show
-    render json: @user
-  end
 
-  def update
-    if (@user.update(user_params))
-      render json: @user
-    end
 
   end
 
@@ -58,7 +61,7 @@ class Api::UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:email, :password, :name, :image )
+      params.require(:user).permit(:email, :password, :name, :image, :id )
     end
 
 end

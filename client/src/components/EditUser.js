@@ -1,8 +1,8 @@
 import {useContext, useEffect, useState} from "react";
 import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../providers/AuthProvider";
-import ImageUpload from "../components/ImageUpload";
 import axios from "axios";
+import ImageUpload from "./ImageUpload";
 
 
 const EditUser= (props) => {
@@ -37,9 +37,9 @@ const EditUser= (props) => {
   return (
     <div>
       <h2>Edit My Profile</h2>
-      <ImageUpload id={auth.id}/>
+      {/* <ImageUpload id={auth.id}/> */}
       <form onSubmit={handleSubmit}>
-      <p>{auth.id}</p>
+      {/* <p>{auth.id}</p> */}
         <p>Name</p>
         <input 
         value={name} 
@@ -48,10 +48,10 @@ const EditUser= (props) => {
         <input 
         value={email} 
         onChange={(e)=>{setEmail(e.target.value);}}/>
-        <p>Image</p>
-        <input 
+        {/* <p>Image</p> */}
+        {/* <input 
         value={image} 
-        onChange={(e)=>{setImage(e.target.value);}}/>
+        onChange={(e)=>{setImage(e.target.value);}}/> */}
         <button>Submit</button>
       </form>
     </div>

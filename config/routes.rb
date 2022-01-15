@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     resources :recipes
     resources :users, only: [:show, :update, :destroy]
-    post "users/image/:id", to: "users#image"
+    post "/users/image/:id", to: "users#image"
 
     get "/recipes", to: "recipes#index"
     get "/recipes/:id", to: "recipes#show"

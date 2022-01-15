@@ -19,7 +19,7 @@ import axios from 'axios';
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 // Our app
-function UpdateUserImage({id}) {
+function ImageUpload({id}) {
   const [files, setFiles] = useState([]);
   return (
       <div className="App">
@@ -27,7 +27,7 @@ function UpdateUserImage({id}) {
               files={files}
               onupdatefiles={setFiles}
               allowMultiple={true}
-              maxFiles={3}
+              maxFiles={1}
               server={`/api/users/image/${id}`}
               name="files"
               labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
@@ -36,4 +36,4 @@ function UpdateUserImage({id}) {
   );
 }
 
-export default UpdateUserImage
+export default ImageUpload
