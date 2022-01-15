@@ -1,84 +1,42 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export const RecipeContext = React.createContext();
-
-// We probably won't use this (use AuthContext and useContext instead)
-// export const AuthConsumer = AuthContext.Consumer;
-
 const RecipeProvider = (props) => {
-  // const getUser = async () => {
-  //   if (user || !localStorage.getItem("access-token")) {
-  //     return;
-  //   }
-  //   try {
-  //     const res = await axios.get("/api/auth/validate_token");
-  //     console.log(res.data.data);
-  //     setUser(res.data.data);
-  //   } catch (err) {
-  //     return;
-  //   }
-  // };
-  // useEffect(() => {
-  //   getUser();
-  // }, []);
-  // a null user is a user that is not logged in
-  const [user, setUser] = useState(null);
 
-  const handleRegister = async (user, navigate) => {
-    // axios call to register users (interacting with DB)
-    try {
-      let res = await axios.post("api/auth", user);
-      setUser(res.data.data);
-      navigate("/protected");
-      // naviagate to a certain page
-    } catch (err) {
-      console.log(err.response);
-      alert("error occured registering user");
+  const [recipes, setRecipes] = useState([]);
+  const [filters, setFilters] = useState([]);
+
+
+    const getRecipes = async () => {
+        var axios = require("axios").default;
+
+            var options = {
+            method: 'GET',
+            url: 'https://edamam-recipe-search.p.rapidapi.com/search',
+            params: {q: 'chicken'},
+            headers: {
+                'x-rapidapi-host': 'edamam-recipe-search.p.rapidapi.com',
+                'x-rapidapi-key': 'c94b98155cmshee8c09107c7ecb6p1571a2jsne93fdf1551d9'
+            }
+            };
+
+            axios.request(options).then(function (response) {
+                console.log(response.data);
+            }).catch(function (error) {
+                console.error(error);
+            });
     }
-  };
-
-  const handleLogin = async (user, navigate) => {
-    // axios call to login users (interacting with DB)
-    try {
-      let res = await axios.post("api/auth/sign_in", user);
-      setUser(res.data.data);
-
-      navigate("/protected");
-      // naviagate to a certain page
-    } catch (err) {
-      console.log(err.response);
-      alert("error occured logging in user (make sure user exists)");
-    }
-  };
-
-  const handleLogout = async (y) => {
-    // axios call to log out users (interacting with DB)
-    try {
-      // destroy token on backend
-      let res = await axios.delete("/api/auth/sign_out");
-      setUser(null);
-      y("/login");
-    } catch (err) {
-      console.log(err.response);
-      alert("error occured logging out user");
-    }
-  
-  };
-  console.log("user", user);
   return (
-    <AuthContext.Provider
+    <RecipeContext.Provider
       value={{
-        ...user,
-        authenticated: user !== null,
-        handleRegister,
-        handleLogin,
-        handleLogout,
-        setUser,
+        getRecipes,
+        recipes,
+        filters,
+        setFilters
       }}
     >
       {props.children}
-    </AuthContext.Provider>
+    </RecipeContext.Provider>
   );
 };
 
