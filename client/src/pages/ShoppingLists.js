@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import ShoppingListForm from "./ShoppingListForm";
+import ShoppingList from "./ShoppingList";
 
 const ShoppingLists = () => {
 
   const [shoppingList, setShoppingList] = useState([]);
+
+    console.log(shoppingList);
 
   useEffect(() => {
     console.log("mounted");
@@ -12,40 +15,40 @@ const ShoppingLists = () => {
   },[])
 
    const getShoppingLists = async () => {
-    let response = await axios.get("/api/shoppinglists");
-    setShoppingLists(response.data)
+    let response = await axios.get("/api/shopping_lists");
+    setShoppingList(response.data)
   };
 
   const renderShoppingLists = () => {
-    if (shoppinglists.length === 0) {
+    if (shoppingList.length === 0) {
       return <p>No Shopping Lists</p>
     }
-    return shoppinglists.map((shoppinglist) => {
-      return <ShoppingList key={shoppinglist.id}{...shoppinglist} updateShoppingList={updateShoppingList} deleteShoppingList = {deleteShoppingList}/>;
+    return shoppingList.map((shoppinglist) => {
+      return <ShoppingList key={shoppingList.id}{...shoppingList} updateShoppingList={updateShoppingList} deleteShoppingList = {deleteShoppingList}/>;
     });
   };
 
   const updateShoppingList = (changedShoppingList) => {
-    let updatedShoppingLists = shoppinglists.map((shoppinglist) => (shoppinglist.id === changedShoppingList.id ? changedShoppingList : shoppinglist));
-  setShoppingLists(updatedShoppingLists)
+    let updatedShoppingLists = shoppingList.map((shoppinglist) => (shoppinglist.id === changedShoppingList.id ? changedShoppingList : shoppinglist));
+  setShoppingList(updatedShoppingLists)
   };
 
   const displayNewShoppingList = (shoppinglist) => {
-    setShoppingLists([shoppinglist,...shoppinglist])
+    setShoppingList([shoppingList,...shoppingList])
   };
 
   const deleteShoppingList = async (id) => {
     let response = await axios.delete(`/api/shoppinglists/${id}`);
-    let filteredShoppingLists = shoppinglists.filter((shoppinglist) => shoppinglist.id !== id);
-    setShoppingLists(filteredShoppingLists);
+    let filteredShoppingLists = shoppingList.filter((shoppinglist) => shoppinglist.id !== id);
+    setShoppingList(filteredShoppingLists);
   }
 
   return (
-    <>
+    <div>
     <h1>Shopping List</h1>
     <ShoppingListForm newestShoppingList={displayNewShoppingList}/>
     {renderShoppingLists()}
-    </>
+    </div>
   )
 }
 

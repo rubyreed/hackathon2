@@ -4,7 +4,8 @@ import ShoppingListForm from "./ShoppingListForm";
 
 const ShoppingList = (props) => {
   const [showForm, setShowForm] = useState(false);
-  const {id, name, updateShoppingList, deleteShoppingList} = props
+  const {id, name, updateShoppingList, deleteShoppingList} = props[0]
+console.log(id)
 
 const toggleForm = () => {
   setShowForm(!showForm);
@@ -13,7 +14,7 @@ const toggleForm = () => {
   return (
     <div>
       <p>Name: {name}</p>
-      <Link to={`/shoppinglists/${id}`}>View</Link>
+      {/* <Link to={`/shopping_lists/${id}`}>View</Link> */}
       <button onClick ={toggleForm}>
         {showForm ? "Cancel" : "Update"}
       </button>

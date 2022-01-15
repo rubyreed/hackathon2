@@ -26,16 +26,11 @@ recipe3.ingredients.create(name: "2 cups of water")
 recipe4 = u4.recipes.create(name: "recipe4")
 recipe4.ingredients.create(name: "400ml of chicken stock")
 
-shoppinglist1 = u1.shoppinglists.create(name:"dinner")
-shoppinglist1.ingredients.create(name: "2 cups rice")
+shoppinglist1 = u1.shopping_lists.create(name:"dinner")
 
-shoppinglist2 = u2.shoppinglists.create(name:"healthy food")
-shoppinglist2.ingredients.create(name: "2 bunches of kale")
+shoppinglist2 = u2.shopping_lists.create(name:"healthy food")
 
+shoppinglist3 = u3.shopping_lists.create(name:"lazy days")
 
-shoppinglist3 = u3.shoppinglists.create(name:"lazy days")
-shoppinglist3.ingredients.create(name: "2 bags of chips")
+shoppinglist4 = u4.shopping_lists.create(name:"superbowl party")
 
-
-shoppinglist4 = u4.shoppinglists.create(name:"superbowl party")
-shoppinglist4.ingredients.create(name: "12 chicken wings")

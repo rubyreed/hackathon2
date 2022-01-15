@@ -3,7 +3,7 @@ import axios from "axios";
 
 const ShoppingListForm = (props) => {
 
-  const {newestShoppingList} = props
+  const {newestShoppingList, initialName, id} = props
 
   const [nameState, setNameState] = useState(initialName ? initialName : "");
 
@@ -12,10 +12,10 @@ const ShoppingListForm = (props) => {
     const newShoppingList = {name: nameState};
 
 if (id) {
-  let response = await axios.put(`/api/shoppinglists/${id}`, newShoppingList);
+  let response = await axios.put(`/api/shopping_lists/${id}`, newShoppingList);
   }
   else {
-    let response = await axios.post("/api/shoppinglists", newShoppingList);
+    let response = await axios.post("/api/shopping_lists", newShoppingList);
     newestShoppingList(response.data)
   }
 }
