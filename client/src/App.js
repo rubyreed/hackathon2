@@ -6,14 +6,10 @@ import RequireAuth from "./components/RequireAuth";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import NavBar from "./pages/NavBar";
-<<<<<<< HEAD
-import RecipeBook from "./pages/RecipeBook";
-=======
 import AboutUs from "./pages/AboutUs";
 import RecipeBook from "./pages/RecipeBook";
 import ShoppingList from "./pages/ShoppingList";
 import Profile from "./pages/Profile";
->>>>>>> b32dccc0dfb1ca61ce42b1b5a4347827c86e49e3
 
 
 function App() {
