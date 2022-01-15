@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+export const RecipeContext = React.createContext();
 const RecipeProvider = (props) => {
 
   const [recipes, setRecipes] = useState([]);
@@ -20,8 +20,9 @@ const RecipeProvider = (props) => {
             }
             };
 
-            axios.request(options).then(function (response) {
+            await axios.request(options).then(function (response) {
                 console.log(response.data);
+                setRecipes(response.data)
             }).catch(function (error) {
                 console.error(error);
             });

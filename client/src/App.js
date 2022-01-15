@@ -10,6 +10,7 @@ import AboutUs from "./pages/AboutUs";
 import RecipeBook from "./pages/RecipeBook";
 import ShoppingList from "./pages/ShoppingList";
 import Profile from "./pages/Profile";
+import FindRecipes from "./pages/FindRecipes"
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/shoppinglist" element={<ShoppingList />} />
         <Route path="/recipebook" element={<RecipeBook />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/find" element={<FindRecipes />} />
         {/* <Route path="/protected" element={<Protected />} /> */}
         </Route>
     </Routes>
