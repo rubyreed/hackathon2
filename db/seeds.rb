@@ -25,3 +25,12 @@ recipe3.ingredients.create(name: "2 cups of water")
 
 recipe4 = u4.recipes.create(name: "recipe4")
 recipe4.ingredients.create(name: "400ml of chicken stock")
+
+shoppinglist1 = u1.shopping_lists.create(name:"dinner")
+
+shoppinglist2 = u2.shopping_lists.create(name:"healthy food")
+
+shoppinglist3 = u3.shopping_lists.create(name:"lazy days")
+
+shoppinglist4 = u4.shopping_lists.create(name:"superbowl party")
+

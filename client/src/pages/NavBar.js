@@ -12,7 +12,7 @@ const NavBar = () => {
     if (authenticated) {
       return (
       <>
-        <Link style={styles.link} to="/shoppinglist">Shopping List</Link>
+        <Link style={styles.link} to="/shoppinglists">Shopping List</Link>
         <Link style={styles.link} to="/recipebook">Recipe Book</Link>
         <Link style={styles.link} to="/profile">Profile</Link>
         <button onClick={() => handleLogout(nav)}>Logout</button>
