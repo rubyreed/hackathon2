@@ -10,6 +10,7 @@ import AboutUs from "./pages/AboutUs";
 import RecipeBook from "./pages/RecipeBook";
 import ShoppingList from "./pages/ShoppingList";
 import Profile from "./pages/Profile";
+import Protected from "./pages/Protected";
 
 
 function App() {
