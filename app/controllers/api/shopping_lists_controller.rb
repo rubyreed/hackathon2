@@ -1,6 +1,6 @@
 class Api::ShoppingListsController < ApplicationController
     before_action :authenticate_user!
-  before_action :set_shopping_list, only: [:show, :update, :destroy]
+    before_action :set_shopping_list, only: [:show, :update, :destroy]
 
   def index
       render json: current_user.shopping_lists
@@ -11,7 +11,7 @@ class Api::ShoppingListsController < ApplicationController
   end
 
   def create
-      @shopping_list = Shopping_list.new(shopping_list_params)
+      @shopping_list = current_user.shopping_lists.new(shopping_list_params)
       if(@shopping_list.save)
           render json: @shopping_list 
       else
