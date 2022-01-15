@@ -1,8 +1,9 @@
 class Api::ShoppingListsController < ApplicationController
+    before_action :authenticate_user!
   before_action :set_shopping_list, only: [:show, :update, :destroy]
 
   def index
-      render json: Shopping_list.all
+      render json: current_user.shopping_lists
   end
 
   def show
