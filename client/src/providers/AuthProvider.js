@@ -30,7 +30,7 @@ const AuthProvider = (props) => {
     try {
       let res = await axios.post("api/auth", user);
       setUser(res.data.data);
-      navigate("/protected");
+      navigate("/profile");
       // naviagate to a certain page
     } catch (err) {
       console.log(err.response);
@@ -44,7 +44,7 @@ const AuthProvider = (props) => {
       let res = await axios.post("api/auth/sign_in", user);
       setUser(res.data.data);
 
-      navigate("/protected");
+      navigate("/profile");
       // naviagate to a certain page
     } catch (err) {
       console.log(err.response);
