@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import EditUser from "../components/EditUser";
 import { AuthContext } from "../providers/AuthProvider";
 
+
 const Profile = () => {
   const auth = useContext(AuthContext);
   const [showEdit, setShowEdit] = useState(false);
@@ -22,7 +23,8 @@ const Profile = () => {
 
       <EditUser/>
     </div>
+
   )
-}
+};
 
 export default Profile;

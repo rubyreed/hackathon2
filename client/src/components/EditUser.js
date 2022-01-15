@@ -5,7 +5,6 @@ import axios from "axios";
 
 
 const EditUser= (props) => {
-  const {auth} = useContext(AuthContext);
   const [email, setEmail] = useState("")
   const [image, setImage] = useState("")
   const [name, setName] = useState("")
@@ -26,7 +25,7 @@ const EditUser= (props) => {
   // }
   const getData = async () => {
     console.log(auth.name)
-    // let res = await axios.get(`/api/users/${params.id}`)
+    // let res = await axios.get(`/api/users/${props.id}`)
     // name ? setName(auth.name) : setName("")
     // setEmail(auth.email)
     // setImage(auth.image)
