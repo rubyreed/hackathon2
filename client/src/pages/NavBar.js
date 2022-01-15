@@ -1,7 +1,6 @@
 import React, {useContext} from "react";
 import {Link, Outlet, useNavigate} from "react-router-dom";
 import {AuthContext} from "../providers/AuthProvider";
-import { Container, Menu } from "semantic-ui-react";
 
 
 
@@ -14,34 +13,43 @@ const NavBar = () => {
       return <button onClick={() => handleLogout(nav)}>Logout</button>;
     }
   return (
-    <Menu>
-      <Menu.Item>
-         <Link to="/register">Register</Link>
-      </Menu.Item>
-      <Menu.Item>
-       <Link to="/login">Login</Link>
-       </Menu.Item>
-    </Menu>
+    <div style={styles.loggedIn}>
+         <Link style={styles.link} to="/register">Register</Link>
+       <Link style={styles.link} to="/login">Login</Link>
+    </div>
     )
   }
     return(
-      <Menu>
-        <Menu.Item>
-        <Link to="/">Home</Link>
-        </Menu.Item>
-        <Menu.Item>
-        <Link to="/public">Public</Link>
-        </Menu.Item>
-        <Menu.Item>
-        <Link to="/protected">Protected</Link>
+      <div style={styles.container}>
+        <Link style={styles.link} to="/">Home</Link>
+        <Link style={styles.link} to="/public">Public</Link>
+        <Link style={styles.link} to="/protected">Protected</Link>
         {renderAuthLinks()}
-        </Menu.Item>
-      <Container>
+      <div>
         <Outlet/>
-      </Container>
-    </Menu>
+      </div>
+    </div>
   )
 };
 
+const styles = {
+  container: {
+      margin: "0px",
+      padding: "10px",
+      justifyContent: "center",
+      backgroundColor: "#6B9A55",
+      display: "flex",
+      flexDirection: "row",
+  },
+  link: {
+      textDecoration: "none",
+      margin: "10px 20px",
+      color: "white",
+      fontSize: "18px"
+  },
+  loggedIn: {
+      padding: "10px 0px 0px 0px",
+  }
+}
 
 export default NavBar;
