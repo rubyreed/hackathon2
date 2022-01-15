@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'api/auth'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api do
-    resources :recipes
+    get "/recipes", to: "recipes#index"
+    get "/recipes/:id", to: "recipes#show"
+    post "/recipes", to: "recipes#create"
+    delete "/recipes/:id", to: "recipes#delete"
   end
 end
