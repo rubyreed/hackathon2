@@ -10,6 +10,7 @@ import AboutUs from "./pages/AboutUs";
 import RecipeBook from "./pages/RecipeBook";
 import ShoppingLists from "./pages/ShoppingLists";
 import Profile from "./pages/Profile";
+import FindRecipes from "./pages/FindRecipes"
 import ShoppingListForm from "./pages/ShoppingListForm";
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/shoppinglists/:id/edit" element={<ShoppingListForm />} />
         <Route path="/recipebook" element={<RecipeBook />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/find" element={<FindRecipes />} />
         {/* <Route path="/protected" element={<Protected />} /> */}
         </Route>
     </Routes>
