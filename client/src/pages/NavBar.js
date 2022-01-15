@@ -24,6 +24,7 @@ const NavBar = () => {
         <Link style={styles.link} to="/">Home</Link>
         <Link style={styles.link} to="/public">Public</Link>
         <Link style={styles.link} to="/protected">Protected</Link>
+        {authenticated && <Link to="/recipebook" style={styles.link}>My Recipe Book</Link>}
         {renderAuthLinks()}
       <div>
         <Outlet/>

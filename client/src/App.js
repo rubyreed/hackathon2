@@ -7,12 +7,13 @@ import RequireAuth from "./components/RequireAuth";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import NavBar from "./pages/NavBar";
+import RecipeBook from "./pages/RecipeBook";
 
 
 function App() {
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       <Routes>
         {/* public routes go here */}
         <Route path="/public" element={<Public />} />
@@ -22,8 +23,9 @@ function App() {
           {/* protected routes go here */}
           <Route path="/" element={<Home />} />
           <Route path="/protected" element={<Protected />} />
+          <Route path="/recipebook" element={<RecipeBook />} />
         </Route>
-    </Routes>
+      </Routes>
     </div>
   );
 }
