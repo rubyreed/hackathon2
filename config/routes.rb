@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api do
+<<<<<<< HEAD
+=======
+
+>>>>>>> facd55694fe46dd5e1d6eb075352ac511eeee6fd
 
     resources :users, only: [:show, :update, :destroy]
     post "/users/image/:id", to: "users#image"
@@ -19,5 +23,9 @@ Rails.application.routes.draw do
       resources :ingredients
     end
     resources :shopping_lists
+<<<<<<< HEAD
+=======
+
+>>>>>>> facd55694fe46dd5e1d6eb075352ac511eeee6fd
   end
 end
