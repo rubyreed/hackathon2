@@ -3,14 +3,16 @@ import { Grid, Select } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import RecipeBookCard from "../components/RecipeBookCard";
+import { useParams } from "react-router";
 
 const RecipeBook = () => {
   const [recipes, setRecipes] = useState(null)
-  const [ingredients, setIngredients] = useState("")
 
-  const handleChange = (event) => {
-    setIngredients(event.target.value);
-  };
+  // const [ingredients, setIngredients] = useState("")
+
+  // const handleChange = (event) => {
+  //   setIngredients(event.target.value);
+  // };
 
   useEffect(() => {
     getRecipeBooks();
@@ -24,21 +26,28 @@ const RecipeBook = () => {
       alert('error in getRecipeBooks')
     }
   }
+  
+  const deleteRecipe = async (id) => {
+    // remove from db
+    await axios.delete(`/api/recipes/${id}`);
+    // remove from UI
+    setRecipes(recipes.filter((r) => r.id !== id));
+  };
 
-  const renderSelect = () => {
-    if (!recipes) {
-      return (
-        <div>
-          Go add some recipes to your Recipe Book!
-          {/* <a href = /> */}
-        </div>
-      )
-    } else {
-      return (
-        <Select></Select>
-      )
-    }
-  }
+  // const renderSelect = () => {
+  //   if (!recipes) {
+  //     return (
+  //       <div>
+  //         Go add some recipes to your Recipe Book!
+  //         {/* <a href = /> */}
+  //       </div>
+  //     )
+  //   } else {
+  //     return (
+  //       <Select></Select>
+  //     )
+  //   }
+  // }
 
   const renderRecipe = () => {
     if (!recipes) {
@@ -50,7 +59,7 @@ const RecipeBook = () => {
           {recipes.map((r) => {
             return(
             <Grid item xs={2} sm={4} md={4} key={r.id}>
-              <RecipeBookCard {...r}/>
+              <RecipeBookCard {...r} deleteRecipe={deleteRecipe}/>
             </Grid>
             )
           })}
@@ -62,7 +71,7 @@ const RecipeBook = () => {
   return (
     <div>
       <h1>My Recipe Book</h1>
-      {/* {JSON.stringify(recipes)} */}
+      {/* {JSON.stringify(ingredients)} */}
       {renderRecipe()}
     </div>
   )
