@@ -16,6 +16,14 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show, :update, :destroy]
     post "/users/image/:id", to: "users#image"
+
+
+    get "/recipes", to: "recipes#index"
+    get "/recipes/:id", to: "recipes#show"
+    post "/recipes", to: "recipes#create"
+    delete "/recipes/:id", to: "recipes#delete"
+    resources :shopping_lists 
+
     resources :recipes, only: [:index, :show, :create, :destroy] do
       resources :ingredients
     end
