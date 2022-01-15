@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
 import {Link, Outlet, useNavigate} from "react-router-dom";
 import {AuthContext} from "../providers/AuthProvider";
+import logo from "./foodielogo.png";
 
 
 
@@ -27,6 +28,7 @@ const NavBar = () => {
   };
     return(
       <div style={styles.container}>
+      <img style={{height:"50px", width:"60px", marginRight:"300px"}} src={logo} alt="logo"/>
         <Link style={styles.link} to="/">Home</Link>
         <Link style={styles.link} to="/aboutus">About Us</Link>
         {renderAuthLinks()}
