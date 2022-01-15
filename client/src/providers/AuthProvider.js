@@ -30,7 +30,7 @@ const AuthProvider = (props) => {
     try {
       let res = await axios.post("api/auth", user);
       setUser(res.data.data);
-      navigate("/protected");
+      navigate("/profile");
       // naviagate to a certain page
     } catch (err) {
       console.log(err.response);
@@ -38,13 +38,23 @@ const AuthProvider = (props) => {
     }
   };
 
+  const handleEdit = async (editedUser, navigate) => {
+    try {
+      let res = await axios.put(`/api/users/${editedUser.id}`, editedUser)
+      setUser(res.data.data)
+      navigate("/profile");  
+     } catch (err) { console.log(err.response);
+       alert("error updating user");
+   }
+  }; 
+
   const handleLogin = async (user, navigate) => {
     // axios call to login users (interacting with DB)
     try {
       let res = await axios.post("api/auth/sign_in", user);
       setUser(res.data.data);
 
-      navigate("/protected");
+      navigate("/profile");
       // naviagate to a certain page
     } catch (err) {
       console.log(err.response);
@@ -75,6 +85,7 @@ const AuthProvider = (props) => {
         handleLogin,
         handleLogout,
         setUser,
+        handleEdit,
       }}
     >
       {props.children}

@@ -5,43 +5,45 @@ import axios from "axios";
 
 
 const EditUser= (props) => {
-  const {handleEdit, auth} = useContext(AuthContext);
+  const {auth} = useContext(AuthContext);
   const [email, setEmail] = useState("")
   const [image, setImage] = useState("")
   const [name, setName] = useState("")
   const [id, setId] = useState("")
   const navigate = useNavigate();
-  const params = useParams();
 
 
   useEffect(() => {
     getData();
   }, [])
 
-  const getData = () => {
-    setEmail(`${auth.email}`)
-    setImage("2")
-    setName("3")
-  }
-  // const getData = async () => {
-  //   let res = await axios.get(`/api/users/${params.id}`)
-  //   setName(res.data.name)
-  //   setEmail(res.data.email)
-  //   setImage(res.data.image)
-  //   setKids(res.data.kids)
-  //   setId(res.data.id)
+  // const getData = () => {
+  //   setEmail(`${auth.email}`)
+  //   console.log(auth.email)
+  //   setImage(`${auth.image}`)
+  //   setName(`${auth.name}`)
+  //   setId(`${auth.id}`)
   // }
+  const getData = async () => {
+    console.log(auth)
+    // let res = await axios.get(`/api/users/${params.id}`)
+    // name ? setName(auth.name) : setName("")
+    // setEmail(auth.email)
+    // setImage(auth.image)
+    // setId(auth.id)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({email, image, name, kids})
-    return handleEdit({email, image, name, kids, id}, navigate);
+    // console.log({email, image, name})
+    // return auth.handleEdit({email, image, name, id}, navigate);
   };
 
 
 
   return (
     <div>
+      {JSON.stringify(name)}
       <h2>Edit My Profile</h2>
       <form onSubmit={handleSubmit}>
         <p>Name</p>
@@ -56,10 +58,6 @@ const EditUser= (props) => {
         <input 
         value={image} 
         onChange={(e)=>{setImage(e.target.value);}}/>
-        <p>Number of Kids</p>
-        <input 
-        value={kids} 
-        onChange={(e)=>{setKids(e.target.value);}}/>
         <button>Submit</button>
       </form>
     </div>
