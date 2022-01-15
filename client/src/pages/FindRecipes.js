@@ -30,7 +30,7 @@ const FindRecipes = () => {
 
     return (
         <div>
-        <header>Home!</header> <br/>
+        <h1>Find a Recipe</h1> <br/>
         {/* <DropdownChecklist items={recipes.healthLabels} setState={setHealthLabels} tag="Health Labels"/>
         <DropdownChecklist items={recipes.cuisineTypes} setState={setCuisineTypes} tag="Cuisine Types"/> <br/> */}
         <input onChange={(e)=>{setSearchText(e.target.value)}}style={{marginLeft: "8px", width: "300px", fontSize: "12pt"}}placeholder="Search keywords"></input>

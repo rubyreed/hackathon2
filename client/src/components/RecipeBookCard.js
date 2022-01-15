@@ -69,7 +69,6 @@ const RecipeBookCard = (props) => {
           </CardActions>
         </CardContent>
       </Card>
-      {JSON.stringify(ingredients)}
     </>
   );
 }
