@@ -44,8 +44,8 @@ const RecipeBookCard = (props) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" variant="contained" >Add Ingredients to Grocery List</Button>
-          <Button onClick={handleOpen} size="small" variant="outlined" >View Recipe</Button>
+          <Button className='button-24' size="small" variant="contained" >Add Ingredients to Grocery List</Button>
+          <Button className='button-24' onClick={handleOpen} size="small" variant="outlined" >View Recipe</Button>
           <Modal
             open={open}
             onClose={handleClose}
@@ -58,6 +58,7 @@ const RecipeBookCard = (props) => {
         <CardContent>
           <CardActions>
             <Button
+            className='button-24'
               size="small"
               variant="contained"
               color="error"

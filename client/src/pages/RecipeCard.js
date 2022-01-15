@@ -9,9 +9,9 @@ const RecipeCard = (props) => {
     <div>
         <h2>{props.recipe.name}</h2>
         <img src={props.recipe.image}/> <br/>
-        <button>View Recipe</button>
-        <button onClick={props.handleAdd}>Add to Recipe Book</button>
-        <button onClick={props.handleNext}>Next Recipe</button>
+        <button className='button-24'>View Recipe</button>
+        <button className='button-24' onClick={props.handleAdd}>Add to Recipe Book</button>
+        <button className='button-24' onClick={props.handleNext}>Next Recipe</button>
         <h5>Ingredients:</h5>
         {props.recipe.ingredients.map((i)=>{
             return (<p>{i}</p>)
