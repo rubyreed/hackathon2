@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 export const RecipeContext = React.createContext();
 const RecipeProvider = (props) => {
-
+    const [selRecipe, setSelRecipe] = useState("")
   const [recipes, setRecipes] = useState([]);
   const [filters, setFilters] = useState({
       healthLabels: [],
@@ -32,6 +32,12 @@ const RecipeProvider = (props) => {
       console.log("filters: " + filters.healthLabels, filters.cuisineTypes)
       getRecipes()
   }, [filters])
+
+  useEffect(()=>{
+      randomRecipe()
+      
+  }, [recipes])
+
 
 
     const getRecipes = async () => {
@@ -77,6 +83,9 @@ const RecipeProvider = (props) => {
                 console.error(error);
             });
     }
+    const randomRecipe = () => {
+        setSelRecipe(recipes[Math.floor(Math.random() * recipes.length)])
+    }
   return (
     <RecipeContext.Provider
       value={{
@@ -85,7 +94,9 @@ const RecipeProvider = (props) => {
         filters,
         setFilters,
         healthLabels,
-        cuisineTypes
+        cuisineTypes,
+        selRecipe,
+        randomRecipe
       }}
     >
       {props.children}

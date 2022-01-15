@@ -15,13 +15,13 @@ const NavBar = () => {
         <Link style={styles.link} to="/shoppinglists">Shopping List</Link>
         <Link style={styles.link} to="/recipebook">Recipe Book</Link>
         <Link style={styles.link} to="/profile">Profile</Link>
-        <button onClick={() => handleLogout(nav)}>Logout</button>
+        <button style={styles.buttonLink} onClick={() => handleLogout(nav)}>Logout</button>
       </>
     )}
   return (
     <>
-        <button><Link to="/register">Register</Link></button>
-        <button><Link to="/login">Login</Link></button>
+        <Link style={styles.link} to="/register">Register</Link>
+        <Link style={styles.link} to="/login">Login</Link>
     </>
     )
   };
@@ -54,7 +54,15 @@ const styles = {
   },
   loggedIn: {
       padding: "10px 0px 0px 0px",
-  }
+  },
+  buttonLink: {
+    textDecoration: "none",
+    margin: "10px",
+    color: "white",
+    border: '0px',
+    backgroundColor: '#6B9A55',
+    fontSize: '16px',
+}
 }
 
 export default NavBar;
