@@ -19,9 +19,9 @@ const Profile = () => {
       <img src={auth.image} />
       <p>email: {auth.email}</p>
       <button onClick={() => setShowEdit(!showEdit)}>Edit Profile</button>
-      { showEdit && <p>thing to toggle (could be a form)</p>}
+      { showEdit && <EditUser/>}
 
-      <EditUser/>
+      
     </div>
 
   )

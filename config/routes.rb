@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :recipes
     resources :users, only: [:show, :update, :destroy]
+    post "users/image/:id", to: "users#image"
   end
 end

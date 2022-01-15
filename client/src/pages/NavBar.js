@@ -10,22 +10,25 @@ const NavBar = () => {
   const { authenticated, handleLogout } = useContext(AuthContext);
   const renderAuthLinks = () => {
     if (authenticated) {
-      return <button onClick={() => handleLogout(nav)}>Logout</button>;
-    }
-  return (
-    <div style={styles.loggedIn}>
-        <Link style={styles.link} to="/profile">Profile</Link>
+      return (
+      <>
         <Link style={styles.link} to="/shoppinglist">Shopping List</Link>
         <Link style={styles.link} to="/recipebook">Recipe Book</Link>
-    </div>
+        <Link style={styles.link} to="/profile">Profile</Link>
+        <button onClick={() => handleLogout(nav)}>Logout</button>
+      </>
+    )}
+  return (
+    <>
+        <button><Link to="/register">Register</Link></button>
+        <button><Link to="/login">Login</Link></button>
+    </>
     )
-  }
+  };
     return(
       <div style={styles.container}>
         <Link style={styles.link} to="/">Home</Link>
         <Link style={styles.link} to="/aboutus">About Us</Link>
-        <Link style={styles.link} to="/register">Register</Link>
-        <Link style={styles.link} to="/login">Login</Link>
         {renderAuthLinks()}
       <div>
         <Outlet/>
