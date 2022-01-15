@@ -8,8 +8,9 @@ import Login from "./pages/Login";
 import NavBar from "./pages/NavBar";
 import AboutUs from "./pages/AboutUs";
 import RecipeBook from "./pages/RecipeBook";
-import ShoppingList from "./pages/ShoppingList";
+import ShoppingLists from "./pages/ShoppingLists";
 import Profile from "./pages/Profile";
+import ShoppingListForm from "./pages/ShoppingListForm";
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
         <Route path="/" element={<Home />} />
       <Route element={<RequireAuth />}>
           {/* protected routes go here */}
-        <Route path="/shoppinglist" element={<ShoppingList />} />
+        <Route path="/shoppinglists" element={<ShoppingLists />} />
+        <Route path="/shoppinglists/:id/edit" element={<ShoppingListForm />} />
         <Route path="/recipebook" element={<RecipeBook />} />
         <Route path="/profile" element={<Profile />} />
         {/* <Route path="/protected" element={<Protected />} /> */}
