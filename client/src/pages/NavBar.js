@@ -14,8 +14,9 @@ const NavBar = () => {
     }
   return (
     <div style={styles.loggedIn}>
-         <Link style={styles.link} to="/register">Register</Link>
-       <Link style={styles.link} to="/login">Login</Link>
+        <Link style={styles.link} to="/profile">Profile</Link>
+        <Link style={styles.link} to="/shoppinglist">Shopping List</Link>
+        <Link style={styles.link} to="/recipebook">Recipe Book</Link>
     </div>
     )
   }
@@ -25,6 +26,9 @@ const NavBar = () => {
         <Link style={styles.link} to="/public">Public</Link>
         <Link style={styles.link} to="/protected">Protected</Link>
         {authenticated && <Link to="/recipebook" style={styles.link}>My Recipe Book</Link>}
+        <Link style={styles.link} to="/aboutus">About Us</Link>
+        <Link style={styles.link} to="/register">Register</Link>
+        <Link style={styles.link} to="/login">Login</Link>
         {renderAuthLinks()}
       <div>
         <Outlet/>

@@ -1,13 +1,19 @@
 import "./App.css";
 import Home from "./pages/Home";
-import Public from "./pages/Public";
-import Protected from "./pages/Protected";
+// import Protected from "./pages/Protected";
 import { Route, Routes } from "react-router-dom";
 import RequireAuth from "./components/RequireAuth";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import NavBar from "./pages/NavBar";
+<<<<<<< HEAD
 import RecipeBook from "./pages/RecipeBook";
+=======
+import AboutUs from "./pages/AboutUs";
+import RecipeBook from "./pages/RecipeBook";
+import ShoppingList from "./pages/ShoppingList";
+import Profile from "./pages/Profile";
+>>>>>>> b32dccc0dfb1ca61ce42b1b5a4347827c86e49e3
 
 
 function App() {
@@ -16,14 +22,18 @@ function App() {
       <NavBar />
       <Routes>
         {/* public routes go here */}
-        <Route path="/public" element={<Public />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route element={<RequireAuth />}>
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/" element={<Home />} />
+      <Route element={<RequireAuth />}>
           {/* protected routes go here */}
           <Route path="/" element={<Home />} />
           <Route path="/protected" element={<Protected />} />
           <Route path="/recipebook" element={<RecipeBook />} />
+        <Route path="/shoppinglist" element={<ShoppingList />} />
+        <Route path="/profile" element={<Profile />} />
+        {/* <Route path="/protected" element={<Protected />} /> */}
         </Route>
       </Routes>
     </div>
