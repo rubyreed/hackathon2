@@ -1,11 +1,16 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Grid, Select } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import RecipeBookCard from "../components/RecipeBookCard";
 
 const RecipeBook = () => {
   const [recipes, setRecipes] = useState(null)
+  const [ingredients, setIngredients] = useState("")
+
+  const handleChange = (event) => {
+    setIngredients(event.target.value);
+  };
 
   useEffect(() => {
     getRecipeBooks();
@@ -20,16 +25,20 @@ const RecipeBook = () => {
     }
   }
 
-  // const renderSelect = () => {
-  //   if (!recipes) {
-  //     return (
-  //       <div>
-  //         <h3>Oops, you don't have any recipes in your recipe book.</h3>
-  //       </div>
-  //     )
-  //   } else {
-  //   }
-  // }
+  const renderSelect = () => {
+    if (!recipes) {
+      return (
+        <div>
+          Go add some recipes to your Recipe Book!
+          {/* <a href = /> */}
+        </div>
+      )
+    } else {
+      return (
+        <Select></Select>
+      )
+    }
+  }
 
   const renderRecipe = () => {
     if (!recipes) {

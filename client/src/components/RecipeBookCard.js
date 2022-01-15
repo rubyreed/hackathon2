@@ -28,7 +28,14 @@ const RecipeBookCard = (props) => {
       </CardActions>
       <CardContent>
         <CardActions>
-          <Button siez="small" variant="contained" color="error" sx={{ mx: "auto" }}>Delete Recipe</Button>
+          <Button
+            size="small"
+            variant="contained"
+            color="error"
+            sx={{ mx: "auto" }}
+            // onClick={() => deleteRecipe(id)}
+          >
+            Delete Recipe</Button>
         </CardActions>
       </CardContent>
     </Card>
