@@ -38,6 +38,16 @@ const AuthProvider = (props) => {
     }
   };
 
+  const handleEdit = async (editedUser, navigate) => {
+    try {
+      let res = await axios.put(`/api/users/${editedUser.id}`, editedUser)
+      setUser(res.data.data)
+      navigate("/profile");  
+     } catch (err) { console.log(err.response);
+       alert("error updating user");
+   }
+  }; 
+
   const handleLogin = async (user, navigate) => {
     // axios call to login users (interacting with DB)
     try {
@@ -75,6 +85,7 @@ const AuthProvider = (props) => {
         handleLogin,
         handleLogout,
         setUser,
+        handleEdit,
       }}
     >
       {props.children}
