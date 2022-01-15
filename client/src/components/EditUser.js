@@ -25,7 +25,7 @@ const EditUser= (props) => {
   //   setId(`${auth.id}`)
   // }
   const getData = async () => {
-    console.log(auth)
+    console.log(auth.name)
     // let res = await axios.get(`/api/users/${params.id}`)
     // name ? setName(auth.name) : setName("")
     // setEmail(auth.email)
