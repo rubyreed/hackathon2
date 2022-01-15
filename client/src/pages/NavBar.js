@@ -13,7 +13,7 @@ const NavBar = () => {
     if (authenticated) {
       return (
       <>
-        <Link style={styles.link} to="/find">Find Recipe</Link>
+        <Link style={styles.link} to="/find">Home</Link>
         <Link style={styles.link} to="/shoppinglists">Shopping List</Link>
         <Link style={styles.link} to="/recipebook">Recipe Book</Link>
         <Link style={styles.link} to="/profile">Profile</Link>
@@ -22,6 +22,7 @@ const NavBar = () => {
     )}
   return (
     <>
+        <Link style={styles.link} to="/">Home</Link>
         <Link style={styles.link} to="/register">Register</Link>
         <Link style={styles.link} to="/login">Login</Link>
     </>
@@ -30,7 +31,6 @@ const NavBar = () => {
     return(
       <div style={styles.container}>
       <img style={{height:"50px", width:"60px", marginRight:"300px"}} src={logo} alt="logo"/>
-        <Link style={styles.link} to="/">Home</Link>
         <Link style={styles.link} to="/aboutus">About Us</Link>
         {renderAuthLinks()}
       <div>
