@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
 import ImageUpload from "./ImageUpload";
+import { Input } from "@mui/material";
 
 
 const EditUser= (props) => {
@@ -28,10 +29,13 @@ const EditUser= (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({email, image, name, id})
-    return auth.handleEdit({email, image, name, id}, navigate);
+    auth.handleEdit({email, image, name, id}, navigate);
+    refreshPage()
   };
 
+  function refreshPage(){
+    window.location.reload(false);
+  };
 
 
   return (
@@ -45,7 +49,7 @@ const EditUser= (props) => {
         value={name} 
         onChange={(e)=>{setName(e.target.value);}}/>
         <p>Email</p>
-        <input 
+        <Input 
         value={email} 
         onChange={(e)=>{setEmail(e.target.value);}}/>
         {/* <p>Image</p> */}

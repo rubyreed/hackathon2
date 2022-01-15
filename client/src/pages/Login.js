@@ -1,6 +1,8 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import { Input } from '@mui/material';
+
 const Login = () => {
   const navigate = useNavigate();
   const { handleLogin } = useContext(AuthContext);
@@ -11,27 +13,27 @@ const Login = () => {
     handleLogin({ email, password }, navigate);
   };
   return (
-    <>
+    <div className='form'>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <p>Email</p>
-        <input placeholder='enter email'
+        <Input placeholder='enter email'
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
           }}
         />
         <p>Password</p>
-        <input placeholder= "enter password" type="password"
+        <Input placeholder= "enter password" type="password"
           value={password}
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
         <br/>
-        <button>Login</button>
+        <button className='button-24'>Login</button>
       </form>
-    </>
+    </div>
   );
 };
 
