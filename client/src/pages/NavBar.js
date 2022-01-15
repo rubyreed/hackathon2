@@ -64,7 +64,8 @@ const styles = {
     color: "white",
     border: '0px',
     backgroundColor: '#6B9A55',
-    fontSize: '16px',
+    fontSize: '18px',
+    padding: "0px 0px 10px 0px",
 }
 }
 
