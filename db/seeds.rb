@@ -14,17 +14,17 @@ u3 = User.create(email: "test3@test.com", password: 123456)
 u4 = User.create(email: "test4@test.com", password: 123456)
 
 
-recipe1 = u1.recipes.create(name: "recipe1", instruction: "Garlic", category: "idk")
-recipe1.ingredients.create(name: "4 Garlic")
+# recipe1 = u1.recipes.create(name: "recipe1", instruction: "Garlic", category: "idk")
+# recipe1.ingredients.create(name: "4 Garlic")
 
-recipe2 = u2.recipes.create(name: "recipe2")
-recipe2.ingredients.create(name: "6 tbsp of peanut butter")
+# recipe2 = u2.recipes.create(name: "recipe2")
+# recipe2.ingredients.create(name: "6 tbsp of peanut butter")
 
-recipe3 = u3.recipes.create(name: "recipe3")
-recipe3.ingredients.create(name: "2 cups of water")
+# recipe3 = u3.recipes.create(name: "recipe3")
+# recipe3.ingredients.create(name: "2 cups of water")
 
-recipe4 = u4.recipes.create(name: "recipe4")
-recipe4.ingredients.create(name: "400ml of chicken stock")
+# recipe4 = u4.recipes.create(name: "recipe4")
+# recipe4.ingredients.create(name: "400ml of chicken stock")
 
 shoppinglist1 = u1.shopping_lists.create(name:"dinner")
 
