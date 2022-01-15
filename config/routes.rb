@@ -19,5 +19,6 @@ Rails.application.routes.draw do
       resources :ingredients
     end
     resources :shopping_lists
+
   end
 end
