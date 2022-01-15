@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get "/recipes", to: "recipes#index"
     get "/recipes/:id", to: "recipes#show"
     post "/recipes", to: "recipes#create"
-    delete "/recipes/:id", to: "recipes#delete"
-
+    delete "/recipes/:id", to: "recipes#delete
+    resources :shopping_lists 
   end
 end
