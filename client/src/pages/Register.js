@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Form } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
 const Register = () => {
   const navigate = useNavigate();
@@ -21,30 +20,30 @@ const Register = () => {
   return (
     <>
       <h1>Register New User</h1>
-      <Form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <p>Email</p>
-        <Form.Input placeholder="enter email"
+        <input placeholder="enter email"
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
           }}
         />
         <p>Password</p>
-        <Form.Input placeholder="create password"
+        <input placeholder="create password"
           value={password}
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
         <p>Password Confirmation</p>
-        <Form.Input placeholder="verify password"
+        <input placeholder="verify password"
           value={passwordConfirmation}
           onChange={(e) => {
             setPasswordConfirmation(e.target.value);
           }}
         />
-        <Button>Register</Button>
-      </Form>
+        <button>Register</button>
+      </form>
     </>
   );
 };
